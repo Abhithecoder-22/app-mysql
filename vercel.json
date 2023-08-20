@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "bin": "./www.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "bin": "/(.*)",
+        "dest": "/"
+      }
+    ]
+}

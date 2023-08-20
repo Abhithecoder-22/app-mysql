@@ -1,0 +1,217 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Invoice
+    link(rel='stylesheet', href='/css/main.css')
+    style.
+      @font-face
+        font-family: "Inter"
+        src: url("Inter-Regular.ttf") format("truetype")
+        font-weight: 400
+        font-style: normal
+
+      // Rest of the CSS styles
+       .text-center
+        text-align: center;
+      .bold
+        font-weight: bold;
+      .invoice-section
+        margin-bottom: 20px;
+      .invoice-section h3
+        margin: 0;
+      .invoice-section p
+        margin: 5px 0;
+      .address
+        margin-bottom: 10px;
+      .address p
+        margin: 5px 0;
+      .item
+        margin-bottom: 10px;
+      .item p
+        margin: 5px 0;
+      .total-section
+        margin-top: 20px;
+        margin-bottom: 10px;
+      .total-section p
+        margin: 5px 0;
+      .transaction-section
+        margin-bottom: 10px;
+      .transaction-section p
+        margin: 5px 0;
+      .note-section
+        margin-bottom: 20px;
+      .note-section p
+        margin: 5px 0;
+      .terms-section
+        margin-bottom: 20px;
+      .terms-section a
+        display: block;
+        margin-bottom: 5px;
+      
+    
+    // Include the html2pdf library
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js", integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==", crossorigin="anonymous", referrerpolicy="no-referrer")
+
+  body
+    button#download-button Download as PDF
+    #invoice
+      #pspdfkit-header
+        .header-columns
+          .logotype
+            img.logo(src="logo.svg")
+            //- p Company
+
+          div
+            //- p [Company Info]
+
+      .page(style="page-break-after: always")
+        div
+          //- h2 Invoice #
+
+        .intro-table
+          .intro-form.intro-form-item
+            //- p.intro-table-title Billed To:
+            //- p
+              | Company Ltd.
+              br
+              | Address
+              br
+              | Country
+              br
+              | VAT ID: ATU12345678
+
+          .intro-form
+            .intro-form-item-border
+              //- p.intro-table-title Payment Date:
+              //- p November 22nd 2021
+
+            .intro-form-item-border
+              //- p.intro-table-title Payment Method:
+              //- p Bank Transfer
+
+        //- .table-box
+          table(cellpadding="0" cellspacing="0")
+            tbody
+              tr.heading
+                td Description
+                td QTY
+                td Unit Price
+                td Total
+
+              // Rest of the table rows
+
+        .summary-box
+          table(cellpadding="0" cellspacing="0")
+            tbody
+              // Rest of the table rows
+
+      //- .page(style="page-break-after: always")
+        div
+          h4 Thank you for your purchase!
+
+      //-   .form
+      //-     label.label(for="notes") Notes:
+      //-     input#notes(type="text", class="border-bottom", value="")
+
+      //-   .signer
+      //-     .form.signer-item
+      //-       label.label(for="date") Date:
+      //-       input#date(type="text", class="border-bottom", value="01/01/2021")
+
+      //-     .form.signer-item
+      //-       label.label(for="signature") Issued by:
+      //-       input#signature(type="text", class="border", value="Sign Here")
+
+      //- #pspdfkit-footer
+      //-   .footer-columns
+      //-     span Invoice
+      //-     span Page #{pageNumber} of #{pageCount}
+
+
+
+  
+       
+     
+
+
+    h2.text-center INVOICE
+    .invoice-section
+      .address
+        h3 BILL TO:
+        p Supervisor Aircraft Maintenance. Engineering Department.
+        p Saudi Arabian Airlines
+        p Room no 16, International Pier A, IGI Airport Terminal 3,
+        p New Delhi - 110037, Delhi, India
+        p Invoice Date: 25/05/2023
+        p Due Date: 24/06/2023
+        p GST Number: 07AACCS3238B1ZS
+        p PAN Number: AACCS3238B
+      .address
+        h3 BILL FROM:
+        p RV TECHNOLOGIES
+        p Office Number 174, Shiv Shakti Plaza, L-1, Palam Dabri Marg,
+        p Opp. Shiv Vani School, Kali Nagar, Delhi,
+        p India - 110045
+        p +918700357353
+        p Email ID: admin@rvtechnologies.in.net
+        p Support ID: support@rvtechnologies.in.net
+        p GST Number: 07ABCFR6330D1Z1
+        p PAN Number: ABCFR6330D
+    .item
+      h3 Item
+      p 1. Desktop
+      p 2. Desktop upgradation and service
+      p 998315
+      p Qty: 2
+      p Rate: 3,500.00
+      p Amount: 7,000.00
+      p 2. Laptop
+      p Laptop upgradation and Battery replace
+      p 998315
+      p Qty: 1
+      p Rate: 4,300.00
+      p Amount: 4,300.00
+      p 3. Transportation
+      p Qty: 1
+      p Rate: 500.00
+      p Amount: 500.00
+    .total-section
+      p.bold Sub Total: Rs 11,800.00
+      p.bold CGST (9.00%): Rs 1,017.00
+      p.bold SGST (9.00%): Rs 1,017.00
+      p.bold Total: Rs 13,834.00
+      p.bold Total Paid: -Rs 13,834.00
+      p.bold Amount Due: Rs 0.00
+    .transaction-section
+      h3 Transactions:
+      p # Payment Mode Date Amount
+      p 25 Bank 25/05/2023 Rs 13,834.00
+    .note-section
+      h3 Note:
+      p *Do Not Use Business Mail As A Bulk Mail Service As Per Our Policies It Will Be Discontinued With Immediate Effect.
+      p *Will Only Provide Server Support 24*7 (+91 8700357353)
+      p *Application Part Will Not Cover Under This.
+      p *Backup Part Of Application/Server Is Also Not Under This.
+      p *Increase Price Of IP Address Will Also Increase The Price Of IP
+    .terms-section
+      h3 Terms & Conditions:
+      a(href="https://rvpolicies.com") https://rvpolicies.com
+      a(href="https://rvtechnologies.in.net/wp-content/uploads/2021/11/TERMS-AND-CONDITIONS.pdf") Terms and Conditions
+      a(href="https://rvtechnologies.in.net/wp-content/uploads/2021/11/SERVICE-LEVEL-AGREEMENT.pdf") Service Level Agreement
+      a(href="https://rvtechnologies.in.net/wp-content/uploads/2021/11/PRIVACY-POLICY.pdf") Privacy Policy
+    .text-center
+      p.bold Authorized Signature _________________________
+
+
+    script.
+      const button = document.getElementById("download-button");
+
+      function generatePDF() {
+        const element = document.getElementById("invoice");
+        html2pdf().from(element).save();
+      }
+
+      button.addEventListener("click", generatePDF);
