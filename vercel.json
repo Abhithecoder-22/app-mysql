@@ -2,13 +2,13 @@
     "version": 2,
     "builds": [
       {
-        "bin": "./www.js",
+        "src": "./www.js",
         "use": "@vercel/node"
       }
     ],
     "routes": [
       {
-        "bin": "/(.*)",
+        "src": "/(.*)",
         "dest": "/"
       }
     ]
